@@ -1,73 +1,69 @@
-# React Portfolio Showcase
+# React + TypeScript + Vite
 
-_(Deutsch: Ein One-Pager zur Demonstration meiner Frontend-Skills mit React, TypeScript, Tailwind und Recharts.)_
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-This is a small one-pager project built with **React**, **TypeScript**, **Tailwind CSS**, and **Recharts**.  
-It demonstrates my frontend skills through routing, dark/light mode, lazy-loaded images, and data visualization.  
-The project is deployed via **GitHub Pages**.
+Currently, two official plugins are available:
 
----
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## 🚀 Tech Stack
+## Expanding the ESLint configuration
 
-- [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/) + [Vite](https://vitejs.dev/)
-- [React Router](https://reactrouter.com/) for client-side routing
-- [Tailwind CSS](https://tailwindcss.com/) for styling
-- [Recharts](https://recharts.org/en-US/) for charts and data visualization
-- GitHub Actions + GitHub Pages for CI/CD and deployment
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
----
+```js
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-## ✨ Features
+      // Remove tseslint.configs.recommended and replace with this
+      ...tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      ...tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      ...tseslint.configs.stylisticTypeChecked,
 
-- Multi-page routing (About, Gallery, Insights)
-- Dark/Light mode toggle
-- Responsive design with Tailwind CSS
-- Lazy-loaded images with blur-up placeholders
-- Data visualization (charts) from JSON files
-- Clean and modern UI design
-- Deployable as a static site (GitHub Pages)
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
----
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-## 📂 Pages
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-- **About** – short introduction + tech stack overview
-- **Gallery** – long image page with lazy loading
-- **Insights** – charts and text powered by JSON data
-
----
-
-## 📌 To Do
-
-- [ ] Initialize project with Vite (React + TS)
-- [ ] Configure Tailwind CSS
-- [ ] Setup routing with React Router (About, Gallery, Insights)
-- [ ] Implement dark/light mode toggle
-- [ ] Build Gallery page with lazy-loaded images
-- [ ] Build Insights page with charts (Recharts + JSON data)
-- [ ] Build About page with tech stack overview
-- [ ] Add responsive design and accessibility improvements
-- [ ] Deploy to GitHub Pages with GitHub Actions
-
----
-
-## 🛠 Installation & Development
-
-```bash
-# Clone the repository
-git clone https://github.com/Fnorb/react-portfolio-showcase.git
-cd react-portfolio-showcase
-
-# Install dependencies
-npm install
-
-# Run development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview the build
-npm run preview
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
