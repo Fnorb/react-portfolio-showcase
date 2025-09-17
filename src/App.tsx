@@ -1,6 +1,7 @@
 // src/App.tsx
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+import ThemeToggle from "./components/ThemeToggle";
 
 export default function App() {
   const location = useLocation();
@@ -12,6 +13,7 @@ export default function App() {
         </NavLink>
         <NavLink to="/gallery">Gallery</NavLink>
         <NavLink to="/about">About</NavLink>
+        <ThemeToggle />
       </nav>
 
       <AnimatePresence mode="wait">
