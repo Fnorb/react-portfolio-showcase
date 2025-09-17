@@ -1,21 +1,21 @@
-// src/App.tsx
-import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import ThemeToggle from "./components/ThemeToggle";
+import Nav from "./components/Navi";
+import { useEffect } from "react";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 export default function App() {
   const location = useLocation();
   return (
     <div className="min-h-dvh">
-      <nav className="p-4 border-b flex gap-4">
-        <NavLink to="/" end>
-          Insights
-        </NavLink>
-        <NavLink to="/gallery">Gallery</NavLink>
-        <NavLink to="/about">About</NavLink>
-        <ThemeToggle />
-      </nav>
-
+      <Nav />
       <AnimatePresence mode="wait">
         <motion.main
           key={location.pathname}
@@ -25,6 +25,7 @@ export default function App() {
           transition={{ duration: 0.18, ease: "easeOut" }}
           className="p-6"
         >
+          <ScrollToTop />
           <Outlet />
         </motion.main>
       </AnimatePresence>

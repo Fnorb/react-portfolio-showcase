@@ -1,11 +1,13 @@
-import { StrictMode } from "react";
+import { StrictMode, Suspense, lazy } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
-import About from "./pages/About";
-import Gallery from "./pages/Gallery";
-import Insights from "./pages/Insights";
+
+const Insights = lazy(() => import("./pages/Insights"));
+const Gallery = lazy(() => import("./pages/Gallery"));
+const About = lazy(() => import("./pages/About"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const router = createBrowserRouter([
   {
@@ -15,12 +17,15 @@ const router = createBrowserRouter([
       { index: true, element: <Insights /> },
       { path: "gallery", element: <Gallery /> },
       { path: "about", element: <About /> },
+      { path: "*", element: <NotFound /> },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Suspense fallback={<div className="p-6">Loading…</div>}>
+      <RouterProvider router={router} />
+    </Suspense>
   </StrictMode>
 );
