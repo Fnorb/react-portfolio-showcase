@@ -1,3 +1,38 @@
-export default function About() {
-  return <h1 className="text-3xl font-bold">Gallery Page</h1>;
+import data from "../data/placeholders.json";
+
+export default function Gallery() {
+  return (
+    <section className="space-y-6">
+      <h1 className="text-3xl font-bold">Gallery</h1>
+      <p className="text-lg text-gray-600 dark:text-gray-300">
+        LQIP demo: blurred low-res → fade in high-res.
+      </p>
+
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {data.map((img) => (
+          <div
+            key={img.file}
+            className="relative overflow-hidden rounded-lg shadow aspect-[4/3]"
+          >
+            {/* LQIP Layer (unscharf, immer sichtbar) */}
+            <img
+              src={img.lqip}
+              alt=""
+              aria-hidden
+              className="absolute inset-0 h-full w-full object-cover blur-md scale-105"
+            />
+
+            {/* HighRes Layer (fadet rein, wenn geladen) */}
+            <img
+              src={img.file}
+              alt="Portfolio image"
+              loading="lazy"
+              onLoad={(e) => (e.currentTarget.style.opacity = "1")}
+              className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700"
+            />
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }
