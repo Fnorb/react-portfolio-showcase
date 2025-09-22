@@ -1,14 +1,18 @@
-export default function Insights() {
-  return (
-    <section className="space-y-6">
-      <h1 className="text-3xl font-bold">Insights</h1>
-      <p className="text-lg text-gray-600 dark:text-gray-300">
-        Some quick stats about my skills and learning journey.
-      </p>
+import VisitorsLineChart from "../components/charts/VisitorsLineChart";
+import SalesBarChart from "../components/charts/SalesBarChart";
+import TrafficPie from "../components/charts/TrafficPie";
+import ActiveUsersArea from "../components/charts/ActiveUsersArea";
 
-      <div className="rounded-xl border border-dashed p-10 text-center text-gray-400 dark:text-gray-500">
-        [ Chart Placeholder ]
+export default function InsightsPage() {
+  return (
+    <div className="space-y-6 sm:space-y-8">
+      {}
+      <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
+        <VisitorsLineChart />
+        <TrafficPie />
+        <SalesBarChart className="md:col-span-2" />
+        <ActiveUsersArea />
       </div>
-    </section>
+    </div>
   );
 }
