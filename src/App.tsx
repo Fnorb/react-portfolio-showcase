@@ -14,7 +14,7 @@ function ScrollToTop() {
 export default function App() {
   const location = useLocation();
   return (
-    <div className="min-h-dvh">
+    <div className="min-h-dvh bg-neutral-100 text-gray-900 dark:bg-neutral-950 dark:text-gray-100 antialiased">
       <Nav />
       <AnimatePresence mode="wait">
         <motion.main
@@ -25,8 +25,11 @@ export default function App() {
           transition={{ duration: 0.18, ease: "easeOut" }}
           className="p-6"
         >
-          <ScrollToTop />
-          <Outlet />
+          {/* zentrierter Container + Max-Breite */}
+          <div className="mx-auto w-full max-w-screen-lg px-2 sm:px-4">
+            <ScrollToTop />
+            <Outlet />
+          </div>
         </motion.main>
       </AnimatePresence>
     </div>

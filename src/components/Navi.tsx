@@ -1,24 +1,44 @@
 import { NavLink } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
+import clsx from "clsx";
 
 const linkCls = ({ isActive }: { isActive: boolean }) =>
-  `px-2 py-1 rounded transition hover:underline ${isActive ? "underline" : ""}`;
+  clsx(
+    "px-3 py-2 rounded-md text-sm font-medium transition",
+    // Standard-Farbe + Hover
+    "text-neutral-700 hover:text-neutral-900 hover:bg-black/5",
+    "dark:text-neutral-300 dark:hover:text-white dark:hover:bg-white/5",
+    // Aktiv: etwas stärker + ohne Hover-Background
+    isActive &&
+      "text-neutral-900 dark:text-white underline decoration-2 underline-offset-4 decoration-black/15 dark:decoration-white/20 hover:bg-transparent"
+  );
 
 export default function Nav() {
   return (
-    <nav className="p-4 border-b flex items-center gap-4" aria-label="Primary">
-      <NavLink to="/" end className={linkCls}>
-        Insights
-      </NavLink>
-      <NavLink to="/gallery" className={linkCls}>
-        Gallery
-      </NavLink>
-      <NavLink to="/about" className={linkCls}>
-        About
-      </NavLink>
-      <div className="ml-auto">
-        <ThemeToggle />
-      </div>
-    </nav>
+    <header
+      // dünne Linie, transluzenter Balken wie im Mock
+      className="sticky top-0 z-40 border-b border-black/5 dark:border-white/10
+                 bg-white/70 dark:bg-neutral-950/60 backdrop-blur"
+      aria-label="Primary"
+    >
+      <nav className="mx-auto w-full max-w-screen-lg px-4">
+        <div className="h-14 flex items-center gap-4">
+          {/* Reihenfolge wie im Mockup */}
+          <NavLink to="/about" className={linkCls}>
+            About
+          </NavLink>
+          <NavLink to="/gallery" className={linkCls}>
+            Gallery
+          </NavLink>
+          <NavLink to="/" end className={linkCls}>
+            Insights
+          </NavLink>
+
+          <div className="ml-auto">
+            <ThemeToggle />
+          </div>
+        </div>
+      </nav>
+    </header>
   );
 }

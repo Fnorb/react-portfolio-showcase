@@ -1,15 +1,25 @@
-export default function About() {
-  return (
-    <section className="space-y-6">
-      <h1 className="text-3xl font-bold">About</h1>
-      <p className="text-lg text-gray-600 dark:text-gray-300">Tech Stack</p>
+import Section from "../components/Section";
 
-      <ul className="list-disc list-inside space-y-1">
-        <li>React & TypeScript</li>
-        <li>Tailwind CSS</li>
-        <li>Data Visualization (Recharts)</li>
-        <li>Modern Frontend Tooling</li>
-      </ul>
-    </section>
+export default function AboutPage() {
+  return (
+    <div className="space-y-6 sm:space-y-8">
+      <Section>
+        <h1 className="text-2xl font-semibold tracking-tight">About</h1>
+        <p className="mt-2 text-balance">
+          I am a frontend developer specializing in building exceptional digital
+          experiences.
+        </p>
+      </Section>
+
+      <Section>
+        <h2 className="text-xl font-semibold">Tech Stack</h2>
+        {/* … Badges / Icons … */}
+      </Section>
+
+      <Section>
+        <h2 className="text-xl font-semibold">Insights</h2>
+        {/* … Charts / Cards … */}
+      </Section>
+    </div>
   );
 }
