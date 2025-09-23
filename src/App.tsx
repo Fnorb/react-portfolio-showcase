@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Nav from "./components/Navi";
 import { useEffect } from "react";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -28,7 +29,9 @@ export default function App() {
           {}
           <div className="mx-auto w-full max-w-screen-lg px-2 sm:px-4">
             <ScrollToTop />
-            <Outlet />
+            <ErrorBoundary>
+              <Outlet />
+            </ErrorBoundary>
           </div>
         </motion.main>
       </AnimatePresence>
