@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 import LanguageToggle from "./LanguageToggle";
 import clsx from "clsx";
+import { useTranslation } from "react-i18next";
 
 const linkCls = ({ isActive }: { isActive: boolean }) =>
   clsx(
@@ -13,6 +14,8 @@ const linkCls = ({ isActive }: { isActive: boolean }) =>
   );
 
 export default function Nav() {
+  const { t } = useTranslation("common");
+
   return (
     <header
       className="sticky top-0 z-40 border-b border-black/5 dark:border-white/10
@@ -21,15 +24,14 @@ export default function Nav() {
     >
       <nav className="mx-auto w-full max-w-screen-lg px-4">
         <div className="h-14 flex items-center gap-4">
-          {}
           <NavLink to="/about" className={linkCls}>
-            About
+            {t("nav.about")}
           </NavLink>
           <NavLink to="/gallery" className={linkCls}>
-            Gallery
+            {t("nav.gallery")}
           </NavLink>
           <NavLink to="/" end className={linkCls}>
-            Insights
+            {t("nav.insights")}
           </NavLink>
 
           <div className="ml-auto flex items-center gap-2">
