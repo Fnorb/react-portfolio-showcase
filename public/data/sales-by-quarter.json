@@ -1,6 +1,0 @@
-[
-  { "label": "Q1", "desktop": 120, "mobile": 80 },
-  { "label": "Q2", "desktop": 150, "mobile": 110 },
-  { "label": "Q3", "desktop": 170, "mobile": 130 },
-  { "label": "Q4", "desktop": 140, "mobile": 95 }
-]

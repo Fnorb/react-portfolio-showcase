@@ -14,7 +14,7 @@ export default function Gallery() {
             key={img.file}
             className="relative overflow-hidden rounded-lg shadow aspect-[4/3]"
           >
-            {/* LQIP Layer (unscharf, immer sichtbar) */}
+            {}
             <img
               src={img.lqip}
               alt=""
@@ -22,7 +22,7 @@ export default function Gallery() {
               className="absolute inset-0 h-full w-full object-cover blur-md scale-105"
             />
 
-            {/* HighRes Layer (fadet rein, wenn geladen) */}
+            {}
             <img
               src={img.file}
               alt="Portfolio image"

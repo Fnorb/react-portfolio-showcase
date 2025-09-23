@@ -1,0 +1,14 @@
+{
+  "title": "Active Users (Web/Mobile)",
+  "x": {
+    "dataKey": "date",
+    "type": "date",
+    "format": "yyyy-MM-dd",
+    "label": "Date"
+  },
+  "y": { "label": "Users" },
+  "series": [
+    { "key": "web", "label": "Web", "color": "var(--chart-1)" },
+    { "key": "mobile", "label": "Mobile", "color": "var(--chart-2)" }
+  ]
+}

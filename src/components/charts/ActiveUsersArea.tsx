@@ -8,47 +8,77 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { useJson } from "../../hooks/useJson";
 import Section from "../Section";
-
-type Row = { date: string; web: number; mobile: number };
+import { useChartConfig } from "../../hooks/useChartParts";
+import { chartStyles, getSeriesColor } from "../charts/chartTheme";
 
 export default function ActiveUsersArea() {
-  const { data, loading, error } = useJson<Row[]>("/data/active-users.json");
+  const { config, loading, error, lang } = useChartConfig("active-users");
 
   if (loading) return <Section>Loading…</Section>;
-  if (error || !data) return <Section>Fehler beim Laden.</Section>;
+  if (error || !config) return <Section>Fehler beim Laden.</Section>;
+
+  const isDate = config.x?.type === "date";
+  const fmtDate = (s: string) =>
+    isDate
+      ? new Intl.DateTimeFormat(lang, {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+        }).format(new Date(s))
+      : String(s);
+  const fmtNumber = (n: number) => new Intl.NumberFormat(lang).format(n);
 
   return (
     <Section>
-      <h2 className="text-lg font-semibold mb-4">
-        Active Users (Web vs. Mobile)
-      </h2>
+      <h2 className="text-lg font-semibold mb-4">{config.title}</h2>
       <div className="h-64">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
-            data={data}
+            data={config.data}
             margin={{ top: 8, right: 12, bottom: 0, left: 0 }}
           >
-            <CartesianGrid strokeDasharray="3 3" strokeOpacity={0.2} />
-            <XAxis dataKey="date" tickMargin={8} />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Area
-              type="monotone"
-              dataKey="web"
-              stackId="a"
-              stroke="#60a5fa"
-              fill="#60a5fa33"
+            <CartesianGrid
+              stroke={chartStyles.gridStroke}
+              strokeDasharray="3 3"
             />
-            <Area
-              type="monotone"
-              dataKey="mobile"
-              stackId="a"
-              stroke="#34d399"
-              fill="#34d39933"
+            <XAxis
+              dataKey={config.x.dataKey}
+              tickFormatter={fmtDate}
+              tickMargin={8}
+              tick={chartStyles.axisTick}
+              axisLine={chartStyles.axisLine}
+              tickLine={chartStyles.tickLine}
             />
+            <YAxis
+              tickFormatter={fmtNumber}
+              tick={chartStyles.axisTick}
+              axisLine={chartStyles.axisLine}
+              tickLine={chartStyles.tickLine}
+            />
+            <Tooltip
+              labelFormatter={fmtDate}
+              formatter={(v: number) => fmtNumber(v)}
+              contentStyle={chartStyles.tooltip.contentStyle}
+              labelStyle={chartStyles.tooltip.labelStyle}
+              itemStyle={chartStyles.tooltip.itemStyle}
+            />
+            <Legend wrapperStyle={chartStyles.legend} />
+            {config.series.map((s, i) => {
+              const color = getSeriesColor(i, s.color);
+              return (
+                <Area
+                  key={s.key}
+                  type="monotone"
+                  dataKey={s.key}
+                  name={s.label}
+                  stroke={color}
+                  fill={color}
+                  fillOpacity={0.22}
+                  activeDot={{ r: 5 }}
+                />
+              );
+            })}
           </AreaChart>
         </ResponsiveContainer>
       </div>

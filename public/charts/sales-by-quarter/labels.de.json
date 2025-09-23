@@ -1,0 +1,9 @@
+{
+  "title": "Umsatz nach Quartal",
+  "x": { "dataKey": "quarter", "type": "category", "label": "Quartal" },
+  "y": { "label": "Umsatz (Index)" },
+  "series": [
+    { "key": "desktop", "label": "Desktop", "color": "var(--chart-2)" },
+    { "key": "mobile", "label": "Mobile", "color": "var(--chart-3)" }
+  ]
+}

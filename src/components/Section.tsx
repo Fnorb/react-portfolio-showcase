@@ -4,7 +4,7 @@ import { createElement, type ElementType, type ReactNode } from "react";
 type SectionProps = {
   className?: string;
   children?: ReactNode;
-  as?: ElementType; // z. B. "section", "article", "div", oder eigene Komponente
+  as?: ElementType;
 };
 
 export default function Section({

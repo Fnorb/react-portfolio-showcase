@@ -13,12 +13,12 @@ export default function AboutPage() {
 
       <Section>
         <h2 className="text-xl font-semibold">Tech Stack</h2>
-        {/* … Badges / Icons … */}
+        {}
       </Section>
 
       <Section>
         <h2 className="text-xl font-semibold">Insights</h2>
-        {/* … Charts / Cards … */}
+        {}
       </Section>
     </div>
   );

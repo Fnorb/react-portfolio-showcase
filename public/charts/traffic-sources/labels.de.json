@@ -1,0 +1,6 @@
+{
+  "title": "Traffic-Quellen",
+  "x": { "dataKey": "source", "type": "category", "label": "Quelle" },
+  "y": { "label": "Anteil" },
+  "series": [{ "key": "value", "label": "Anteil", "color": "var(--chart-1)" }]
+}

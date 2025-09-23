@@ -25,7 +25,7 @@ export default function App() {
           transition={{ duration: 0.18, ease: "easeOut" }}
           className="p-6"
         >
-          {/* zentrierter Container + Max-Breite */}
+          {}
           <div className="mx-auto w-full max-w-screen-lg px-2 sm:px-4">
             <ScrollToTop />
             <Outlet />

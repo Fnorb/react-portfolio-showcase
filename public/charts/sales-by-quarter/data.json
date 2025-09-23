@@ -1,0 +1,6 @@
+[
+  { "quarter": "Q1 2025", "desktop": 120, "mobile": 80 },
+  { "quarter": "Q2 2025", "desktop": 150, "mobile": 110 },
+  { "quarter": "Q3 2025", "desktop": 170, "mobile": 130 },
+  { "quarter": "Q4 2025", "desktop": 140, "mobile": 95 }
+]

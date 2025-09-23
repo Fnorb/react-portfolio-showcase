@@ -6,30 +6,61 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { useJson } from "../../hooks/useJson";
 import Section from "../Section";
-
-type Row = { name: string; value: number };
-
-const COLORS = ["#60a5fa", "#34d399", "#fbbf24", "#f472b6"];
+import { useChartConfig } from "../../hooks/useChartParts";
+import { chartStyles, getSeriesColor } from "../charts/chartTheme";
 
 export default function TrafficPie() {
-  const { data, loading, error } = useJson<Row[]>("/data/traffic-sources.json");
+  const { config, loading, error } = useChartConfig("traffic-sources");
 
   if (loading) return <Section>Loading…</Section>;
-  if (error || !data) return <Section>Fehler beim Laden.</Section>;
+  if (error || !config) return <Section>Fehler beim Laden.</Section>;
+
+  const nameKey = config.x.dataKey;
+  const valueKey = config.series[0]?.key as string;
+
+  const hasValues =
+    Array.isArray(config.data) &&
+    valueKey &&
+    config.data.every((d: any) => typeof d[valueKey] === "number");
+
+  if (!hasValues) {
+    console.warn("TrafficPie: data not numeric for", valueKey, config.data);
+    return <Section>Datensatz fehlt oder hat keine numerischen Werte.</Section>;
+  }
+
+  const legendPayload = config.data.map((row: any, i: number) => ({
+    id: String(i),
+    type: "square" as const,
+    color: getSeriesColor(i),
+    value: String(row?.[nameKey] ?? ""),
+  }));
 
   return (
     <Section>
-      <h2 className="text-lg font-semibold mb-4">Traffic Sources</h2>
+      <h2 className="text-lg font-semibold mb-4">{config.title}</h2>
       <div className="h-64">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
-            <Tooltip />
-            <Legend />
-            <Pie data={data} dataKey="value" nameKey="name" outerRadius="80%">
-              {data.map((_, i) => (
-                <Cell key={i} fill={COLORS[i % COLORS.length]} />
+            <Tooltip
+              contentStyle={chartStyles.tooltip.contentStyle}
+              labelStyle={chartStyles.tooltip.labelStyle}
+              itemStyle={chartStyles.tooltip.itemStyle}
+              labelFormatter={(label, payload) =>
+                (payload?.[0]?.payload?.[nameKey] as string) ?? String(label)
+              }
+              formatter={(val: number) => new Intl.NumberFormat().format(val)}
+            />
+            <Legend payload={legendPayload} wrapperStyle={chartStyles.legend} />
+            <Pie
+              data={config.data}
+              dataKey={valueKey}
+              nameKey={nameKey}
+              outerRadius="80%"
+              stroke="transparent"
+            >
+              {config.data.map((_, i) => (
+                <Cell key={i} fill={getSeriesColor(i)} />
               ))}
             </Pie>
           </PieChart>
