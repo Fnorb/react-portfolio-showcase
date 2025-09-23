@@ -6,6 +6,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import ChartSkeleton from "../ChartSkeleton";
 import Section from "../Section";
 import { useChartConfig } from "../../hooks/useChartParts";
 import { chartStyles, getSeriesColor } from "../charts/chartTheme";
@@ -13,7 +14,12 @@ import { chartStyles, getSeriesColor } from "../charts/chartTheme";
 export default function TrafficPie() {
   const { config, loading, error } = useChartConfig("traffic-sources");
 
-  if (loading) return <Section>Loading…</Section>;
+  if (loading)
+    return (
+      <Section>
+        <ChartSkeleton />
+      </Section>
+    );
   if (error || !config) return <Section>Fehler beim Laden.</Section>;
 
   const nameKey = config.x.dataKey;

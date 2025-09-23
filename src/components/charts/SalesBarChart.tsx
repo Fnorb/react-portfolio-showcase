@@ -8,6 +8,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import ChartSkeleton from "../ChartSkeleton";
 import Section from "../Section";
 import { useChartConfig } from "../../hooks/useChartParts";
 import { chartStyles, getSeriesColor } from "../charts/chartTheme";
@@ -15,7 +16,12 @@ import { chartStyles, getSeriesColor } from "../charts/chartTheme";
 export default function SalesBarChart() {
   const { config, loading, error, lang } = useChartConfig("sales-by-quarter");
 
-  if (loading) return <Section>Loading…</Section>;
+  if (loading)
+    return (
+      <Section>
+        <ChartSkeleton />
+      </Section>
+    );
   if (error || !config) return <Section>Fehler beim Laden.</Section>;
 
   const fmtNumber = (n: number) => new Intl.NumberFormat(lang).format(n);
