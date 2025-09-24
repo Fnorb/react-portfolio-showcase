@@ -6,7 +6,7 @@ import "./index.css";
 import App from "./App";
 
 const Insights = lazy(() => import("./pages/Insights"));
-const Gallery = lazy(() => import("./pages/Gallery"));
+const LQIP = lazy(() => import("./pages/LQIP"));
 const About = lazy(() => import("./pages/About"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { index: true, element: <Insights /> },
-      { path: "gallery", element: <Gallery /> },
+      { path: "lqip", element: <LQIP /> },
       { path: "about", element: <About /> },
       { path: "*", element: <NotFound /> },
     ],

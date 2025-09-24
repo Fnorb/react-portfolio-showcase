@@ -1,69 +1,25 @@
-# React + TypeScript + Vite
+# React Portfolio Showcase
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Kleine Demo-App, um moderne Frontend-Skills zu zeigen:
 
-Currently, two official plugins are available:
+- **Charts** (Line/Area/Bar/Pie) mit Light/Dark + DE/EN-Labels (JSON-getrieben)
+- **LQIP** Bildlade-Demo (blur → Fade-in)
+- **i18n** (DE/EN) mit Language-Toggle & Auto-Detection
+- **Dark Mode** Toggle + Reduced-Motion-Unterstützung
+- Clean UI mit Tailwind v4 und wiederverwendbaren Komponenten
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## Expanding the ESLint configuration
+React 19 • TypeScript 5.8 • Vite 7 (SWC) • Tailwind v4 • Recharts 3 •  
+React Router 7 • Framer Motion 12 • i18next (+ http-backend + detector) • sharp (LQIP)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Schnellstart
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm i
+npm run dev       # Dev-Server
+npm run build     # Type-Check + Build
+npm run preview   # Produktions-Build lokal ansehen
+npm run lint      # ESLint
+npm run lqip      # LQIP-Assets erzeugen (requires images + script)
 ```

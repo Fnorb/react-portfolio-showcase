@@ -1,8 +1,8 @@
 {
   "nav": {
     "about": "About",
-    "gallery": "Gallery",
-    "insights": "Insights"
+    "lqip": "Image Loading Demo (LQIP)",
+    "insights": "Metrics"
   },
-  "loading": "Loading…"
+  "loading": "Loading..."
 }

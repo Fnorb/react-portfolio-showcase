@@ -1,6 +1,18 @@
 {
-  "title": "Über mich",
-  "lead": "Ich bin Frontend-Entwickler und baue außergewöhnliche digitale Erlebnisse.",
-  "stack": "Tech-Stack",
-  "insights": "Insights"
+  "about-title": "Über mich",
+  "about-1": "Als Web-Entwickler bin ich in der IT Branche seit 2007 tätig, entwickelte Flash-Spiele, animierte Werbebanner und Webseiten, arbeite dann als Fullstack-Entwickler und war schließlich als Frontend-Entwickler zu Hause angekommen.",
+  "about-2": "Eine hohe Priorität hat für mich der Erwerb neuen Wissens, insbesondere Konferenzen sind hier sehr inspirierend. Aber auch die Wissensvermittlung ist für mich relevant, so dass ich 2023 den Ausbildereignungsschein bei der IHK Hannover erwarb.",
+  "page-title": "Diese Seite",
+  "page-description": "Diese Seite entstand als kleines Privat-Projekt, um kürzlich erworbene React-Kenntnisse anzuwenden.",
+  "page-feat-1": "Insights-Dashboard: 4 Charts (Line, Area, Bar, Pie), responsiv, Light/Dark-kontrastiert, sprachabhängige Labels",
+  "page-feat-2": "LQIP-Gallery: visuell smoother Bild-Load (UX-Showcase)",
+  "page-feat-3": "Mehrsprachigkeit: DE/EN, Umschalter im Header, automatische Browser-Erkennung",
+  "page-feat-4": "A11y & UX: Reduced Motion Support, tastaturbedienbare Toggles, gute Kontraste im Dark Mode",
+  "stack-title": "Tech Stack",
+  "stack-description": "Folgender Tech Stack wird verwendet:",
+  "stack-tech-1": "React 19 + TypeScript 5.8",
+  "stack-tech-2": "Vite 7 (React SWC) – schneller Dev-Server & Builds",
+  "stack-tech-3": "Tailwind CSS v4 + clsx – Utility-First Styling, Dark-Mode per CSS-Variablen",
+  "stack-tech-4": "Recharts 3 – JSON-basierte Charts (Light/Dark & i18n-Labels)",
+  "stack-tech-5": "React Router 7, Framer Motion 12, i18next (HTTP-Backend + Detector) + LQIP (sharp)"
 }

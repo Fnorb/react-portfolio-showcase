@@ -12,6 +12,9 @@ export default function InsightsPage() {
     <div className="space-y-6 sm:space-y-8">
       <Section>
         <h1 className="text-2xl font-semibold tracking-tight">{t("title")}</h1>
+        <p className="mt-2 text-neutral-600 dark:text-neutral-300">
+          {t("subtitle")}
+        </p>
       </Section>
 
       <div className="grid gap-6 sm:gap-8 md:grid-cols-2">

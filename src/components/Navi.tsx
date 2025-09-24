@@ -27,11 +27,11 @@ export default function Nav() {
           <NavLink to="/about" className={linkCls}>
             {t("nav.about")}
           </NavLink>
-          <NavLink to="/gallery" className={linkCls}>
-            {t("nav.gallery")}
-          </NavLink>
           <NavLink to="/" end className={linkCls}>
             {t("nav.insights")}
+          </NavLink>
+          <NavLink to="/lqip" className={linkCls}>
+            {t("nav.lqip")}
           </NavLink>
 
           <div className="ml-auto flex items-center gap-2">

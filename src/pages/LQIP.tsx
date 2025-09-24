@@ -6,9 +6,12 @@ export default function Gallery() {
 
   return (
     <section className="space-y-6">
-      <h1 className="text-3xl font-bold">{t("title")}</h1>
-      <p className="text-lg text-gray-600 dark:text-gray-300">
+      <h1 className="text-2xl font-semibold tracking-tight">{t("title")}</h1>
+      <p className="mt-2 text-neutral-600 dark:text-neutral-300">
         {t("subtitle")}
+      </p>
+      <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
+        {t("note")}
       </p>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">

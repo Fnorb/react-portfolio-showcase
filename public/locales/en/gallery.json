@@ -1,5 +1,6 @@
 {
-  "title": "Gallery",
-  "subtitle": "LQIP demo: blurred low-res → fade in high-res.",
+  "title": "Image Loading Demo (LQIP)",
+  "subtitle": "Blurred low-res placeholder with a smooth fade to high-res.",
+  "note": "No zoom/lightbox — the focus is the loading transition.",
   "imageAlt": "Portfolio image"
 }
