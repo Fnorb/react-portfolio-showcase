@@ -1,25 +1,25 @@
 # React Portfolio Showcase
 
-Kleine Demo-App, um moderne Frontend-Skills zu zeigen:
+React demo app to reinforce recently acquired knowledge:
 
-- **Charts** (Line/Area/Bar/Pie) mit Light/Dark + DE/EN-Labels (JSON-getrieben)
-- **LQIP** Bildlade-Demo (blur → Fade-in)
-- **i18n** (DE/EN) mit Language-Toggle & Auto-Detection
-- **Dark Mode** Toggle + Reduced-Motion-Unterstützung
-- Clean UI mit Tailwind v4 und wiederverwendbaren Komponenten
+- **Charts** (Line/Area/Bar/Pie) with light/dark themes and DE/EN labels (JSON-driven)
+- **LQIP** image loading demo (blur → fade-in)
+- **i18n** (DE/EN) with language toggle & auto-detection
+- **Dark Mode** toggle + reduced-motion support
+- Clean UI with Tailwind v4 and reusable components
 
 ## Tech Stack
 
 React 19 • TypeScript 5.8 • Vite 7 (SWC) • Tailwind v4 • Recharts 3 •  
-React Router 7 • Framer Motion 12 • i18next (+ http-backend + detector) • sharp (LQIP)
+React Router 7 • Framer Motion 12 • i18next (+ http backend + detector) • sharp (LQIP)
 
-## Schnellstart
+## Quick Start
 
 ```bash
 npm i
-npm run dev       # Dev-Server
-npm run build     # Type-Check + Build
-npm run preview   # Produktions-Build lokal ansehen
+npm run dev       # dev server
+npm run build     # type check + build
+npm run preview   # preview production build locally
 npm run lint      # ESLint
-npm run lqip      # LQIP-Assets erzeugen (requires images + script)
+npm run lqip      # generate LQIP assets (requires images + script)
 ```
