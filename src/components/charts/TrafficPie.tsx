@@ -16,8 +16,8 @@ export default function TrafficPie() {
   if (loading) return <Section>Loading…</Section>;
   if (error || !config) return <Section>Fehler beim Laden.</Section>;
 
-  const nameKey = config.x.dataKey as string; // z. B. "source"
-  const valueKey = config.series[0]?.key as string; // z. B. "value"
+  const nameKey = config.x.dataKey as string;
+  const valueKey = config.series[0]?.key as string;
 
   const hasValues =
     Array.isArray(config.data) &&

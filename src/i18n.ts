@@ -12,7 +12,9 @@ i18n
     supportedLngs: ["de", "en"],
     ns: ["common", "about", "gallery", "insights"],
     defaultNS: "common",
-    backend: { loadPath: "/locales/{{lng}}/{{ns}}.json" },
+    backend: {
+      loadPath: `${import.meta.env.BASE_URL}locales/{{lng}}/{{ns}}.json`,
+    },
     detection: {
       order: ["localStorage", "navigator", "htmlTag", "querystring"],
       caches: ["localStorage"],
