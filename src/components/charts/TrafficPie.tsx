@@ -6,7 +6,6 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import ChartSkeleton from "../ChartSkeleton";
 import Section from "../Section";
 import { useChartConfig } from "../../hooks/useChartParts";
 import { chartStyles, getSeriesColor } from "../charts/chartTheme";
@@ -14,33 +13,21 @@ import { chartStyles, getSeriesColor } from "../charts/chartTheme";
 export default function TrafficPie() {
   const { config, loading, error } = useChartConfig("traffic-sources");
 
-  if (loading)
-    return (
-      <Section>
-        <ChartSkeleton />
-      </Section>
-    );
+  if (loading) return <Section>Loading…</Section>;
   if (error || !config) return <Section>Fehler beim Laden.</Section>;
 
-  const nameKey = config.x.dataKey;
-  const valueKey = config.series[0]?.key as string;
+  const nameKey = config.x.dataKey as string; // z. B. "source"
+  const valueKey = config.series[0]?.key as string; // z. B. "value"
 
   const hasValues =
     Array.isArray(config.data) &&
-    valueKey &&
+    !!valueKey &&
     config.data.every((d: any) => typeof d[valueKey] === "number");
 
   if (!hasValues) {
     console.warn("TrafficPie: data not numeric for", valueKey, config.data);
     return <Section>Datensatz fehlt oder hat keine numerischen Werte.</Section>;
   }
-
-  const legendPayload = config.data.map((row: any, i: number) => ({
-    id: String(i),
-    type: "square" as const,
-    color: getSeriesColor(i),
-    value: String(row?.[nameKey] ?? ""),
-  }));
 
   return (
     <Section>
@@ -57,7 +44,16 @@ export default function TrafficPie() {
               }
               formatter={(val: number) => new Intl.NumberFormat().format(val)}
             />
-            <Legend payload={legendPayload} wrapperStyle={chartStyles.legend} />
+            <Legend
+              wrapperStyle={chartStyles.legend}
+              formatter={(value, entry) => {
+                const row = (entry?.payload as any) || {};
+                const label = row?.[nameKey];
+                return typeof label === "string"
+                  ? label
+                  : String(label ?? value);
+              }}
+            />
             <Pie
               data={config.data}
               dataKey={valueKey}
