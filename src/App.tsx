@@ -31,7 +31,6 @@ export default function App() {
           }
           className="p-6"
         >
-          {}
           <div className="mx-auto w-full max-w-screen-lg px-2 sm:px-4">
             <ScrollToTop />
             <ErrorBoundary>
