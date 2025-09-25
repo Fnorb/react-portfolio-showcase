@@ -1,0 +1,13 @@
+{
+  "title": "Visitors (daily)",
+  "x": {
+    "dataKey": "date",
+    "type": "date",
+    "format": "yyyy-MM-dd",
+    "label": "Date"
+  },
+  "y": { "label": "Visitors" },
+  "series": [
+    { "key": "visitors", "label": "Visitors", "color": "var(--chart-1)" }
+  ]
+}

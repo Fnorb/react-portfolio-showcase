@@ -4,4 +4,6 @@ import react from "@vitejs/plugin-react-swc";
 
 export default defineConfig({
   plugins: [tailwindcss(), react()],
+  base: "/react-portfolio-showcase/",
+  build: { outDir: "docs", emptyOutDir: true },
 });

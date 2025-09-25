@@ -1,0 +1,6 @@
+[
+  { "source": "Direct", "value": 420 },
+  { "source": "Search", "value": 310 },
+  { "source": "Social", "value": 190 },
+  { "source": "Referral", "value": 130 }
+]

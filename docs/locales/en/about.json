@@ -1,0 +1,18 @@
+{
+  "about-title": "About Me",
+  "about-1": "I’ve been working in the IT industry since 2007: building Flash games, animated ad banners, and websites, later as a full-stack developer, and ultimately finding my home in frontend development.",
+  "about-2": "Continual learning is a high priority for me — conferences are especially inspiring. Knowledge sharing is important to me as well, so in 2023 I obtained the trainer aptitude certificate (AEVO) from the IHK Hannover.",
+  "page-title": "This Site",
+  "page-description": "This site was created as a small personal project to apply recently acquired React skills.",
+  "page-feat-1": "Insights dashboard: 4 charts (Line, Area, Bar, Pie), responsive, light/dark themed, language-specific labels",
+  "page-feat-2": "LQIP gallery: visually smooth image loading (UX showcase)",
+  "page-feat-3": "Multilingual: DE/EN, header toggle, automatic browser detection",
+  "page-feat-4": "A11y & UX: reduced motion support, keyboard-accessible toggles, strong contrast in dark mode",
+  "stack-title": "Tech Stack",
+  "stack-description": "The following tech stack is used:",
+  "stack-tech-1": "React 19 + TypeScript 5.8",
+  "stack-tech-2": "Vite 7 (React SWC) — fast dev server & builds",
+  "stack-tech-3": "Tailwind CSS v4 + clsx — utility-first styling, dark mode via CSS variables",
+  "stack-tech-4": "Recharts 3 — JSON-driven charts (light/dark & i18n labels)",
+  "stack-tech-5": "React Router 7, Framer Motion 12, i18next (HTTP backend + detector) + LQIP (sharp)"
+}

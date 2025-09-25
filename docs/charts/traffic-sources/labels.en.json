@@ -1,0 +1,6 @@
+{
+  "title": "Traffic Sources",
+  "x": { "dataKey": "source", "type": "category", "label": "Source" },
+  "y": { "label": "Share" },
+  "series": [{ "key": "value", "label": "Share", "color": "var(--chart-1)" }]
+}

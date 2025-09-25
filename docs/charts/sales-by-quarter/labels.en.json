@@ -1,0 +1,9 @@
+{
+  "title": "Sales by Quarter",
+  "x": { "dataKey": "quarter", "type": "category", "label": "Quarter" },
+  "y": { "label": "Sales (index)" },
+  "series": [
+    { "key": "desktop", "label": "Desktop", "color": "var(--chart-2)" },
+    { "key": "mobile", "label": "Mobile", "color": "var(--chart-3)" }
+  ]
+}
