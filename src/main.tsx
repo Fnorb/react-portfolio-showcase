@@ -16,9 +16,10 @@ const router = createBrowserRouter(
       path: "/",
       element: <App />,
       children: [
-        { index: true, element: <Insights /> },
-        { path: "lqip", element: <LQIP /> },
+        { index: true, element: <About /> },
         { path: "about", element: <About /> },
+        { path: "lqip", element: <LQIP /> },
+        { path: "insights", element: <Insights /> },
         { path: "*", element: <NotFound /> },
       ],
     },

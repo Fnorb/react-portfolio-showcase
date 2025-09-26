@@ -27,7 +27,7 @@ export default function Nav() {
           <NavLink to="/about" className={linkCls}>
             {t("nav.about")}
           </NavLink>
-          <NavLink to="/" end className={linkCls}>
+          <NavLink to="/insights" end className={linkCls}>
             {t("nav.insights")}
           </NavLink>
           <NavLink to="/lqip" className={linkCls}>
