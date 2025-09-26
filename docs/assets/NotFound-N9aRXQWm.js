@@ -1,1 +1,0 @@
-import{j as e,S as t}from"./index-CuGEspM6.js";function n(){return e.jsxs(t,{children:[e.jsx("h1",{className:"text-2xl font-semibold",children:"404 — Seite nicht gefunden"}),e.jsx("p",{className:"mt-2 opacity-80",children:"Die angeforderte Seite existiert nicht."})]})}export{n as default};
